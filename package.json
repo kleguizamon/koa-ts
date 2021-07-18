@@ -34,7 +34,7 @@
   "scripts": {
     "build": "tsc --build",
     "start": "ts-node-dev src/server.ts",
-    "test": "NODE_ENV=test PORT=7788 jest",
+    "test": "jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1",
     "test:watch": "npm run test -- --watchAll"
   },
   "jest": {
@@ -44,7 +44,7 @@
       "<rootDir>/node_modules/"
     ],
     "roots": [
-      "<rootDir>/__tests__"
+      "<rootDir>/tests"
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
@@ -53,7 +53,7 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
